@@ -1,0 +1,14 @@
+.{
+    .name = .cli,
+    .fingerprint = 0x48f6513cd789e2b7,
+    .version = "0.1.0",
+    .dependencies = .{},
+    .minimum_zig_version = "0.17.1",
+    .paths = .{
+        "LICENSE",
+        "README.md",
+        "build.zig",
+        "build.zig.zon",
+        "src",
+    },
+}
