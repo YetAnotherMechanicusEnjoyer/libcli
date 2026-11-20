@@ -15,8 +15,8 @@ const CMacro = struct {
     value: []const u8,
 };
 
-fn createModule(b: *std.Build, root_path: []const u8, cfg: Config, link_libc: bool) *std.Build.Module {
-    const mod = b.addModule(.{
+fn createModule(b: *std.Build, name: []const u8, root_path: []const u8, cfg: Config, link_libc: bool) *std.Build.Module {
+    const mod = b.addModule(name, .{
         .root_source_file = b.path(root_path),
         .target = cfg.target,
         .optimize = cfg.optimize,
@@ -70,7 +70,7 @@ pub fn build(b: *std.Build) void {
     // Components
     // -------------------------
 
-    const cli_mod = createModule(b, "src/root.zig", cfg, true);
+    const cli_mod = createModule(b, "cli", "src/root.zig", cfg, true);
 
     const cli_lib = b.addLibrary(.{
         .name = "cli",
