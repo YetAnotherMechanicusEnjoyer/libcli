@@ -16,7 +16,7 @@ const CMacro = struct {
 };
 
 fn createModule(b: *std.Build, root_path: []const u8, cfg: Config, link_libc: bool) *std.Build.Module {
-    const mod = b.createModule(.{
+    const mod = b.addModule(.{
         .root_source_file = b.path(root_path),
         .target = cfg.target,
         .optimize = cfg.optimize,
